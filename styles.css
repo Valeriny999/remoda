@@ -1,0 +1,282 @@
+/* ==========================================================================
+   VARIABLES DE COLOR Y CONFIGURACIÓN GLOBAL
+   ========================================================================== */
+:root {
+    --denim-dark: #1b2e4b;       /* Azul mezclilla oscuro / Índigo profundo */
+    --denim-medium: #3b5984;     /* Azul mezclilla clásico */
+    --denim-light: #8fa9c4;      /* Mezclilla claro / lavado */
+    --denim-accent: #d2e1f0;     /* Tono celeste muy suave */
+    --white-pure: #ffffff;       /* Blanco puro para contrastes limpios */
+    --white-soft: #f7f9fc;       /* Blanco grisáceo para fondos sutiles */
+    --text-dark: #111e30;        /* Texto de alta legibilidad */
+    --font-main: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--white-pure);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN SUPERIOR (FIXED)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(27, 46, 75, 0.95); /* Denim oscuro con ligera transparencia */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--denim-light);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area .nav-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-area .nav-logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--white-pure);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--denim-light);
+}
+
+/* Línea animada debajo de cada enlace al pasar el cursor */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--white-pure);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   ESTRUCTURA DE SECCIONES
+   ========================================================================== */
+.main-content {
+    margin-top: 80px; /* Evita que la navbar tape el contenido */
+}
+
+.page-section {
+    min-height: 100vh;
+    padding: 100px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--denim-dark);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   SECCIÓN 1: INICIO (HERO)
+   ========================================================================== */
+.section-hero {
+    background: linear-gradient(135deg, var(--denim-dark) 0%, var(--denim-medium) 100%);
+    color: var(--white-pure);
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--white-pure);
+    color: var(--denim-dark);
+    font-weight: 600;
+    border-radius: 50px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: transparent;
+    color: var(--white-pure);
+    border: 2px solid var(--white-pure);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--white-pure);
+    color: var(--denim-dark);
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   SECCIÓN 2: SOBRE NOSOTROS
+   ========================================================================== */
+.section-about {
+    background-color: var(--white-soft);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    color: var(--denim-medium);
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #445266;
+}
+
+.about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: var(--white-pure);
+    padding: 25px;
+    border-left: 5px solid var(--denim-medium);
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+/* ==========================================================================
+   PLACEHOLDERS TEMPORALES PARA EL RESTO DE SECCIONES
+   ========================================================================== */
+.placeholder-box, .gallery-placeholder, .organigrama-placeholder {
+    width: 100%;
+    min-height: 300px;
+    background-color: var(--white-soft);
+    border: 2px dashed var(--denim-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-top: 30px;
+    color: var(--denim-medium);
+    font-weight: 600;
+}
+
+.gallery-placeholder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border: none;
+}
+
+.gallery-item {
+    background-color: var(--denim-accent);
+    color: var(--denim-dark);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.main-footer {
+    background-color: var(--denim-dark);
+    color: var(--white-pure);
+    text-align: center;
+    padding: 30px;
+    border-top: 2px solid var(--denim-light);
+}
+
+/* ==========================================================================
+   ANIMACIONES SUTILES (KEYFRAMES)
+   ========================================================================== */
+.fade-in {
+    animation: fadeIn ease 1.5s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
